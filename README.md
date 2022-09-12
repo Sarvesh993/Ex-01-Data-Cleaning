@@ -19,4 +19,59 @@ Remove the null values from the data
 Save the Clean data to the file
 
 # CODE
-# OUPUT
+import pandas as pd
+import numpy as np
+import seaborn as sns
+
+df1 = pd.read_csv("/content/drive/MyDrive/Colab Notebooks/Semester 3/19AI403 - Data Science/Ex_1_Data_set.csv")
+df1
+
+df1.head()
+
+df1.describe()
+
+df1.info()
+
+df1.tail()
+
+df1.shape
+
+df1.columns
+
+df1.isnull().sum()
+
+df1.duplicated()
+
+#Using mode method to fill the data in columns as Object(String)
+#mode()[0] - Takes the most reccuring value and fills the empty cells
+df1['show_name'] = df1['show_name'].fillna(df1['show_name'].mode()[0])
+df1['aired_on'] = df1['aired_on'].fillna(df1['aired_on'].mode()[0])
+df1['original_network'] = df1['original_network'].fillna(df1['original_network'].mode()[0])
+
+sns.boxplot(x="rating",data=df1)
+
+#Using mean method to fill the data
+df1['rating'] = df1['rating'].fillna(df1['rating'].mean())
+df1['current_overall_rank'] = df1['current_overall_rank'].fillna(df1['current_overall_rank'].mean())
+df1['watchers'] = df1['watchers'].fillna(df1['watchers'].mean())
+
+#Checking the total no.of null values again
+df1.isnull().sum()
+
+#Checking info of the dataset to check all the columns have entries
+df1.info()
+# OUPUT:
+![input](dspic1.png)
+![input](dspic2.png)
+![input](dspic3.png)
+![input](dspic4.png)
+![input](dspic5.png)
+![input](dspic6.png)
+![input](dspic7.png)
+![input](dspic8.png)
+![input](dspic9.png)
+![input](dspic10.png)
+![input](dspic11.png)
+
+Result:
+
