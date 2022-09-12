@@ -74,4 +74,4 @@ df1.info()
 ![input](dspic11.png)
 
 Result:
-
+The given data is read and data cleaning is performed and the cleaned data is saved to a file.
